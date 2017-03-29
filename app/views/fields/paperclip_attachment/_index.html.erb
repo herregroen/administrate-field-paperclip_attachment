@@ -1,0 +1,18 @@
+<%#
+# Paperclip Image Index Partial
+This partial renders a paperclip attachment - image
+to be displayed on a resource's index page.
+By default, the thumbnail of an image is rendered.
+## Local variables:
+- `field`:
+  An instance of Administrate::Field::PaperclipImage.
+  A wrapper around a paperclip attachment pulled from the database.
+%>
+
+<% if field.show? %>
+  <% if field.is_image %>
+    <%= image_tag field.url_for(:index) %>
+  <% else %>
+    <%= link_to field.data.original_filename, field.url_for(:index) %>
+  <% end %>
+<% end %>
