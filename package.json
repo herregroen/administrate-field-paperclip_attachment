@@ -1,0 +1,7 @@
+{
+  "name": "administrate-field-paperclip_attachment",
+  "version": "0.0.1",
+  "dependencies": {
+    "cropper": "latest"
+  }
+}

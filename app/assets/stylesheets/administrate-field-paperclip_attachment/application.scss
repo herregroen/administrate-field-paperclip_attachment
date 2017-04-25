@@ -1,3 +1,17 @@
-.field-unit--paperclip-image {
+@import "administrate-field-paperclip_attachment/cropper.min";
+
+.field-unit--paperclip-attachment {
   align-items: flex-start;
+
+  img {
+    max-width: 100%;
+  }
+
+  .cropper-help {
+    display: none;
+  }
+
+  .paperclip-image-upload {
+    margin-top: 1em;
+  }
 }

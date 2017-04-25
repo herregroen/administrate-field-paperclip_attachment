@@ -31,6 +31,14 @@ module Administrate
         @_is_image ||= options.fetch :is_image, true
       end
 
+      def cropper
+        @_cropper ||= options.fetch :cropper, false
+      end
+
+      def aspect_ratio
+        @_aspect_ratio ||= options.fetch :aspect_ratio, nil
+      end
+
       def url style=nil
         return data.url(style.to_sym)  if style and data.styles.key?(style.to_sym)
         data.url

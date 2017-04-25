@@ -36,6 +36,12 @@ Available options:
 
     Used to determine which attachment style to use on which page.
     Checks if it actually exists and falls back to the original image.
+- cropper (default: `false`)
+
+    Used to determine if an image cropper tool should be made available or to use uploaded images as they are.
+- aspect_ratio (default: `nil`)
+
+    Used to determine if the image cropper tool should force a certain aspect ratio.
 
 ## Usage with image destroy
 
@@ -44,7 +50,7 @@ In your Dashboard:
   ATTRIBUTE_TYPES = {
     image: Field::PaperclipAttachment,
     image_delete: Field::Boolean,
-    file: Field::PaperclipAttachment(is_image: false),
+    file: Field::PaperclipAttachment.with_options(is_image: false),
     file_delete: Field::Boolean
   }.freeze
 

@@ -17,10 +17,19 @@ By default, the input is a file input.
 <div class="field-unit__field">
   <% if field.data.present? %>
     <% if field.is_image %>
-      <%= image_tag field.url_for(:form) %>
+      <% if field.cropper %>
+        <span class="cropper-help"><%= t('administrate.field.paperclip_attachment.cropper_help') %></span>
+        <%= image_tag field.url_for(:form), data: { :'aspect-ratio' => field.aspect_ratio, :'has-cropper' => true } %>
+        <%= file_field nil, nil, accept: field.accept_types.join(','), class: 'paperclip-image-upload' %>
+        <%= f.hidden_field field.attribute, value: nil %>
+      <% else %>
+        <%= image_tag field.url_for(:form) %>
+        <%= f.file_field field.attribute, accept: field.accept_types.join(','), class: 'paperclip-image-upload' %>
+      <% end %>
     <% else %>
       <%= link_to field.data.original_filename, field.url_for(:form) %>
+      <%= f.file_field field.attribute, accept: field.accept_types.join(',') %>
     <% end %>
   <% end %>
-  <%= f.file_field field.attribute, accept: field.accept_types.join(','), class: 'paperclip-image-upload' %>
+
 </div>

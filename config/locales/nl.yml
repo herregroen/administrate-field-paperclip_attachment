@@ -1,0 +1,5 @@
+nl:
+  administrate:
+    field:
+      paperclip_attachment:
+        cropper_help: Dubbel klik om te wisselen tussen bewegen en selecteren
