@@ -19,6 +19,22 @@ By default, the input is a file input.
     <% if field.is_image %>
       <% if field.cropper %>
         <span class="cropper-help"><%= t('administrate.field.paperclip_attachment.cropper_help') %></span>
+        <% if field.show_tile %>
+          <style>
+            img[data-aspect-ratio="<%=field.aspect_ratio%>"] + .cropper-container .cropper-dashed.dashed-h {
+              display: none;
+            }
+            img[data-aspect-ratio="<%=field.aspect_ratio%>"] + .cropper-container .cropper-dashed.dashed-v {
+              margin: auto;
+              opacity: .75;
+              left: <%= (1 - (1 / field.aspect_ratio)) * 50 %>%;
+              width: <%= (1 / field.aspect_ratio) * 100 %>%;
+              border: 0 solid #39f;
+              border-right-width: 2px;
+              border-left-width: 2px;
+            }
+          </style>
+        <% end %>
         <%= image_tag field.url_for(:form), data: { :'aspect-ratio' => field.aspect_ratio, :'has-cropper' => true } %>
         <%= file_field nil, nil, accept: field.accept_types.join(','), class: 'paperclip-image-upload' %>
         <%= f.hidden_field field.attribute, value: nil %>

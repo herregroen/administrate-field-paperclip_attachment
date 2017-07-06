@@ -23,6 +23,10 @@ module Administrate
         @_show_missing ||= options.fetch :show_missing, true
       end
 
+      def show_tile
+        @_show_tile ||= options.fetch :show_tile, true
+      end
+
       def page_styles
         @_page_styles ||= options.fetch :page_styles, { index: :thumbnail, show: :medium, form: :medium }
       end

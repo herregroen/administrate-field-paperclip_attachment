@@ -3,7 +3,7 @@ $:.push File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name          = "administrate-field-paperclip_attachment"
-  spec.version       = "0.0.4"
+  spec.version       = "0.0.5"
   spec.authors       = ["Herre Groen"]
   spec.email         = ["herregroen@noxqs.nl"]
   spec.homepage      = "https://www.noxqs.nl"

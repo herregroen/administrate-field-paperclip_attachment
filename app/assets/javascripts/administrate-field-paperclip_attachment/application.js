@@ -16,7 +16,10 @@ var init = function () {
             aspectRatio: img.data('aspect-ratio'),
             viewMode: 1,
             dragMode: 'move',
-            crop: function () {
+            cropend: function () {
+              hidden.val(img.cropper('getCroppedCanvas').toDataURL());
+            },
+            ready: function () {
               hidden.val(img.cropper('getCroppedCanvas').toDataURL());
             }
           });
